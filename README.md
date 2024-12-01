@@ -27,7 +27,7 @@ kafka-console-producer.bat --bootstrap-server localhost:9092 --topic employees
 kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic employees --property print.key=true --property  print.value=true --property print.partition=true --property print.offset=true
 
 
-# Confluent Kafka Community Edition in local
+# Confluent Kafka  in local
 ## Start Zookeeper Server
 
 bin/zookeeper-server-start etc/kafka/zookeeper.properties
@@ -38,7 +38,7 @@ bin/kafka-server-start etc/kafka/server.properties
 
 ## Create topic
 
-bin/kafka-topics --bootstrap-server localhost:9092 --create --topic NewTopic1 --partitions 3 --replication-factor 1
+bin/kafka-topics --bootstrap-server localhost:9092 --create --topic employees --partitions 3 --replication-factor 1
 
 ## list out all topic names
 
@@ -46,17 +46,17 @@ bin/kafka-topics --bootstrap-server localhost:9092 --list
 
 ## Describe topics
 
-bin/kafka-topics --bootstrap-server localhost:9092 --describe --topic NewTopic1
+bin/kafka-topics --bootstrap-server localhost:9092 --describe --topic employees
 
 ## Produce message
 
-bin/kafka-console-producer --broker-list localhost:9092 --topic NewTopic1
+bin/kafka-console-producer --broker-list localhost:9092 --topic employees
 
 ## consume message
 
-bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic NewTopic1 --from-beginning 
+bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic employees --from-beginning 
 
 ## Send CSV File data to kafka
 
-bin/kafka-console-producer --broker-list localhost:9092 --topic NewTopic1 <bin/customers.csv
+bin/kafka-console-producer --broker-list localhost:9092 --topic employees <bin/customers.csv
 
